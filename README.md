@@ -102,6 +102,41 @@ Example:
 
 ---
 
+## 7. Install PySpark:
+```
+pip install pyspark
+```
+
+## 8. List installed packages
+```
+$ pip list
+Package Version
+------- --------
+pip     26.1.2
+py4j    0.10.9.9
+pyspark 4.2.0
+(venv)
+```
+
+
+## 9.Save Dependencies
+
+If this is a project environment, save the installed packages:
+
+```
+pip freeze > requirements.txt
+```
+
+## 10. Install All Packages from the Freeze File
+
+Use the saved requirements.txt:
+
+```
+pip install -r requirements.txt
+```
+
+This recreates the same package versions in the new environment.
+
 ## Common Commands
 
 ```bash
