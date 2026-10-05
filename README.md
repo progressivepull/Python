@@ -159,4 +159,84 @@ pip list
 deactivate
 
 # Show current Python path
-which 
+which
+```
+# Java Version Mismatch
+
+You may find that `JAVA_HOME` points to one Java installation while the `java` command runs a different version.
+
+Example:
+
+```bash
+echo $JAVA_HOME
+```
+
+Output:
+
+```text
+C:\Program Files\Java\jdk-26.0.2.1
+```
+
+But:
+
+```bash
+java -version
+```
+
+Output:
+
+```text
+java version "1.8.0_211"
+```
+
+This indicates:
+
+- `JAVA_HOME` points to **JDK 26**
+- `java.exe` being executed comes from **Java 8**
+
+---
+
+## Quick Fix for the Current Git Bash Session
+
+If JDK 26 is already installed, update the environment variables in the current terminal session:
+
+```bash
+export JAVA_HOME="/c/Program Files/Java/jdk-26.0.2.1"
+export PATH="$JAVA_HOME/bin:$PATH"
+```
+
+---
+
+## Verify the Active Java Version
+
+Run:
+
+```bash
+java -version
+```
+
+Expected output:
+
+```text
+java version "26.x.x"
+```
+
+or similar, indicating that Java is now running from the JDK specified by `JAVA_HOME`.
+
+---
+
+## Verify Which Java Executable Is Being Used
+
+Run:
+
+```bash
+which java
+```
+
+Example output:
+
+```text
+/c/Program Files/Java/jdk-26.0.2.1/bin/java
+```
+
+This confirms that the terminal is using the correct Java installation.
